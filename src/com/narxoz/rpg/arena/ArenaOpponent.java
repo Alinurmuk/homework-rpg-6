@@ -1,31 +1,12 @@
 package com.narxoz.rpg.arena;
-
 public class ArenaOpponent {
-    private final String name;
-    private int health;
-    private final int maxHealth;
-    private final int attackPower;
-
-    public ArenaOpponent(String name, int health, int attackPower) {
-        this.name = name;
-        this.health = health;
-        this.maxHealth = health;
-        this.attackPower = attackPower;
-    }
-
+    private String name;
+    private int health, maxHealth, attackPower;
+    public ArenaOpponent(String n, int h, int p) { name = n; health = h; maxHealth = h; attackPower = p; }
+    public void takeDamage(int a) { health = Math.max(0, health - a); }
+    public void restoreHealth(int a) { health = Math.min(maxHealth, health + a); }
+    public boolean isAlive() { return health > 0; }
     public String getName() { return name; }
     public int getHealth() { return health; }
     public int getAttackPower() { return attackPower; }
-
-    public void takeDamage(int amount) {
-        health = Math.max(0, health - amount);
-    }
-
-    public void restoreHealth(int amount) {
-        health = Math.min(maxHealth, health + amount);
-    }
-
-    public boolean isAlive() {
-        return health > 0;
-    }
 }
