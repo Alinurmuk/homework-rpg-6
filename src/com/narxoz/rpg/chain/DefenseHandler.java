@@ -1,29 +1,8 @@
 package com.narxoz.rpg.chain;
-
 import com.narxoz.rpg.arena.ArenaFighter;
-
 public abstract class DefenseHandler {
-    private DefenseHandler next;
-
-    public DefenseHandler setNext(DefenseHandler next) {
-        // Provided: fluent setter so chains can be built like:
-        //   dodge.setNext(block).setNext(armor).setNext(hp)
-        // setNext returns the argument so the chain reads left-to-right.
-        this.next = next;
-        return next;
-    }
-
-    protected DefenseHandler getNext() {
-        return next;
-    }
-
-    protected void passToNext(int damage, ArenaFighter target) {
-        // TODO: If damage is still greater than 0 and a next handler exists, forward it.
-        // TODO: What should happen when there is no next handler but damage is nonzero?
-        if (next != null) {
-            next.handle(damage, target);
-        }
-    }
-
-    public abstract void handle(int incomingDamage, ArenaFighter target);
+    protected DefenseHandler next;
+    public DefenseHandler setNext(DefenseHandler n) { this.next = n; return n; }
+    protected void passToNext(int d, ArenaFighter t) { if(next != null && d > 0) next.handle(d, t); }
+    public abstract void handle(int d, ArenaFighter t);
 }
