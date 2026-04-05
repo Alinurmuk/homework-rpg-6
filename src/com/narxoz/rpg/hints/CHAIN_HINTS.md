@@ -8,7 +8,7 @@ Let incoming damage pass through a sequence of handlers. Each handler either abs
 
 | Role | Class |
 |------|-------|
-| Abstract Handler | `DefenseHandler` |
+| Abstract Handleer | `DefenseHandler` |
 | Concrete Handlers | `DodgeHandler`, `BlockHandler`, `ArmorHandler`, `HpHandler` |
 | Chain Builder | `TournamentEngine` (and `Main.java` for the isolated demo) |
 

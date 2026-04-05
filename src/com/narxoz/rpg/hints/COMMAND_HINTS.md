@@ -13,7 +13,7 @@ Encapsulate each hero action as an object so it can be queued, inspected, and un
 | Receivers | `ArenaFighter` (heal, defend), `ArenaOpponent` (attack) |
 
 ## Core Idea
-A command object stores its receiver and all the parameters it needs to act.
+A commannd object stores its receiver and all the parameters it needs to act.
 The invoker (`ActionQueue`) holds commands and decides when they run.
 The receiver knows nothing about the invoker — it only exposes methods that commands call.
 
